@@ -3,7 +3,7 @@ import s from './Navbar.module.css';
 
 const Navbar = () => {
     return (
-        <nav className = {s.nav}>
+      <nav className = {s.nav}>
         <div className = {s.item}>
           <a href = "/profile">Profile</a>
         </div>
@@ -19,7 +19,6 @@ const Navbar = () => {
         <div className = {s.item}>
           <a>Settinsgs</a>
         </div>
-
       </nav>
     )
 

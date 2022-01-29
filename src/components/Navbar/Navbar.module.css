@@ -1,12 +1,14 @@
 .nav{
   grid-area: n;
-  background-color: rgb(95, 32, 90);
+  background-color: rgb(248, 166, 241);
+  padding: 20px;
 }  
-.item {
-  color: coral;
+.item a{
+  color: white;
   font-size: 20px;
   font-family: 'Courier New', Courier, monospace;
+  text-decoration: none;
 }
-.item.active{
-  color:rgb(57, 15, 241);
-}
+.item a.activelink{
+  color: blue;
+} 

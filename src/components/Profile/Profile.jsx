@@ -2,7 +2,8 @@ import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
 import s from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import { addPost } from './../../redux/state';
+import { addPost } from './../../redux/store';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 
 const Profile = (props) => {
@@ -10,13 +11,10 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileInfo/>
-      <MyPosts  posts= {props.profilePage.posts} 
-                addPost = {props.addPost} 
-                newPostText = {props.profilePage.newPostText}
-                updateNewPostText = {props.updateNewPostText} />
+      <MyPostsContainer />
 
     </div>
-  )
+  )  
 
 }
 export default Profile;

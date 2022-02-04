@@ -10,7 +10,8 @@ import Settings from './components/Settings/Settings';
 import { Route, Routes } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import News from './components/News/News';
-import { addPost } from './redux/state';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
+import MyPostsContainer from './components/Profile/MyPosts/MyPostsContainer';
 
 
 
@@ -24,12 +25,9 @@ const App = (props) => {
         <div className='app-wrapper-content'>
           <Routes>
             <Route path="/dialogs"
-             element ={ <Dialogs 
-              state={props.state.dialogsPage} />} />
+             element ={ <DialogsContainer />} />
             <Route path="/profile"
-             element ={ <Profile profilePage ={props.state.profilePage}
-                                 addPost = {props.addPost}
-                                 updateNewPostText = {props.updateNewPostText} />}  />
+             element ={ <Profile />}  />
            
           </Routes>
         </div> 

@@ -1,21 +1,22 @@
 import React from "react";
 import styles from './users.module.css';
+import *  as axios from 'axios';
+import userPhoto from '../../assets/images/user.png';
 
 let Users = (props) => {
     if (props.users.length === 0) {
-        props.setUsers([
-            { id: 1, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT11DTZGHkLBYRPM6QR9nUyHkSM6k0HIpmJpw&usqp=CAU', followed: false, fullname: 'Dmitry', status: 'T am are boss', location: { city: 'Minsk', country: 'Belarus' } },
-            { id: 2, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT11DTZGHkLBYRPM6QR9nUyHkSM6k0HIpmJpw&usqp=CAU', followed: true, fullname: 'Jeck', status: 'I am a boss too', location: { city: 'Washington', country: 'USA' } },
-            { id: 3, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLaVs5lXqwrZDPXE0p0PgL8ZahqLyRRDLIQ&usqp=CAU', followed: true, fullname: 'Julia', status: 'T like a tea', location: { city: 'Kiev', country: 'Ukraine' } },
-            { id: 4, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLaVs5lXqwrZDPXE0p0PgL8ZahqLyRRDLIQ&usqp=CAU', followed: true, fullname: 'Mary', status: 'I am a teacher', location: { city: 'Moscow', country: 'Russia' } }
-        ])
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                props.setUsers(response.data.items);
+            });
     }
     return <div>
         {
             props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                        <img src={u.photoUrl} className={styles.userPhoto} />
+                        <img src={u.photos.small != null ? u.photos.small : userPhoto}
+                            className={styles.userPhoto} />
                     </div>
                     <div>
                         {u.followed ? <button onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
@@ -25,12 +26,12 @@ let Users = (props) => {
                 </span>
                 <span>
                     <span>
-                        <div>{u.fullname}</div>
+                        <div>{u.name}</div>
                         <div>{u.status}</div>
                     </span>
                     <span>
-                        <div>{u.location.city}</div>
-                        <div>{u.location.country}</div>
+                        <div>{'u.location.city'}</div>
+                        <div>{'u.location.country'}</div>
                     </span>
                 </span>
             </div>)

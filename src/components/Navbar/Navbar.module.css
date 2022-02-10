@@ -1,10 +1,10 @@
 .nav{
   grid-area: n;
-  background-color: rgb(248, 166, 241);
+  background-color: rgb(39, 236, 236);
   padding: 20px;
 }  
 .item a{
-  color: white;
+  color:white;
   font-size: 20px;
   font-family: 'Courier New', Courier, monospace;
   text-decoration: none;

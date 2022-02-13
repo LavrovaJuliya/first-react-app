@@ -11,7 +11,7 @@ let initialState = {
 
   ],
   newPostText: 'it-kamasutra.com',
-  profile:null
+  profile:{}
 };
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -32,13 +32,10 @@ const profileReducer = (state = initialState, action) => {
       return{
         ...state,
         newPostText:action.newText
-      }
+      };
     }
     case SET_USER_PROFILE: {
-      return{
-        ...state,
-        profile:action.profile
-      }
+      return{...state,profile:action.profile};
     }
 
     default: return state;
@@ -60,10 +57,10 @@ export const updateNewPostTextActionCreator = (text) => {
 }
 export const setUserProfile = (profile) => {
   return ({
-    type: SET_USER_PROFILE, profile
+    type: SET_USER_PROFILE, profile:profile
 
-  }
-  )
+  })
+  
 }
 
 

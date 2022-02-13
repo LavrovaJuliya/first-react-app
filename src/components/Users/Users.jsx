@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 
 
 
+
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
@@ -13,9 +14,9 @@ let Users = (props) => {
     }
     return < div >
         <div>
-            {pages.map(p => {
-                return <span className={props.currentPage === p && styles.selectedPage}
-                    onClick={(e) => { props.onPageChanged(p) }}>{p}</span>
+            {pages.map((p) => {
+                return <span className={props.currentPage === p && styles.selectedPage} key = {p.id}
+                    onClick={(e) => { props.onPageChanged(p); }}>{p}</span>
             })}
 
         </div>
@@ -24,10 +25,13 @@ let Users = (props) => {
             props.users.map(u => <div key={u.id}>
                 <span>
                     <div>
-                        <NavLink to ={'/profile/'+ u.id} >
+
+                        <NavLink to={'/profile/' + u.id}>
+                            
                             <img src={u.photos.small != null ? u.photos.small : userPhoto}
                                 className={styles.userPhoto} />
                         </NavLink>
+
                     </div>
                     <div>
                         {u.followed ? <button onClick={() => { props.unfollow(u.id) }}>Unfollow</button>

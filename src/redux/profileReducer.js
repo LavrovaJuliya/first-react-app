@@ -11,7 +11,8 @@ let initialState = {
 
   ],
   newPostText: 'it-kamasutra.com',
-};
+  profile:null
+}
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST: {

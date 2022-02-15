@@ -77,7 +77,7 @@ export const setUsers = (users) => {
 }
 export const setCurrentPage = (currentPage) => { 
     return ({
-        type: SET_CURRENT_PAGE, currentPage
+        type: SET_CURRENT_PAGE, currentPage:currentPage
     })
 
 }

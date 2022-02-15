@@ -3,10 +3,15 @@
     grid-area: h; 
     background-color: rgb(39, 236, 236);
    
-   }
+}
    .header img{
      width: 80px;
      border:1px solid  rgb(61, 164, 212);
-     
-    
-   }
+     }
+.loginBlock{
+  float:right;
+}
+.loginBlock a{
+  color:white;
+  font-size: large;
+}
